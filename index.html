@@ -165,11 +165,15 @@
         </h1>
 
         <p class="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-          Not just suggestions. OpenWork organizes files, drafts reports, and builds spreadsheets.
+          Not just suggestions. OpenWork works on your computer — Slack, Notion, browser, files, whatever you need. Share automations with your team as skills.
         </p>
 
-        <div class="flex items-center justify-center gap-2 text-sm text-zinc-500">
-          <span>Free to use. Bring your own model. Works with providers at <a href="https://models.dev" target="_blank" class="underline hover:text-zinc-300">models.dev</a>.</span>
+        <div class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-zinc-500">
+          <span>Runs on macOS, Windows, Linux.</span>
+          <span class="hidden sm:inline">•</span>
+          <span>Works with <a href="https://models.dev" target="_blank" class="underline hover:text-zinc-300">50+ models</a>.</span>
+          <span class="hidden sm:inline">•</span>
+          <span>Open source.</span>
         </div>
 
         <div
@@ -293,17 +297,19 @@
 
         <!-- Tabs -->
         <div class="flex flex-wrap justify-center gap-2" id="demo-tabs">
-          <button onclick="switchTab('files')" class="tab-btn active px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-white text-black shadow-lg shadow-white/5 ring-1 ring-black/5" data-tab="files">Organize files</button>
-          <button onclick="switchTab('spreadsheets')" class="tab-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-zinc-900 text-zinc-400 hover:text-white hover:bg-zinc-800 ring-1 ring-white/10" data-tab="spreadsheets">Build spreadsheets</button>
-          <button onclick="switchTab('reports')" class="tab-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-zinc-900 text-zinc-400 hover:text-white hover:bg-zinc-800 ring-1 ring-white/10" data-tab="reports">Prepare reports</button>
-          <button onclick="switchTab('analyze')" class="tab-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-zinc-900 text-zinc-400 hover:text-white hover:bg-zinc-800 ring-1 ring-white/10" data-tab="analyze">Analyze notes</button>
+          <button onclick="switchTab('crm')" class="tab-btn active px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-white text-black shadow-lg shadow-white/5 ring-1 ring-black/5" data-tab="crm">Update your CRM</button>
+          <button onclick="switchTab('slack')" class="tab-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-zinc-900 text-zinc-400 hover:text-white hover:bg-zinc-800 ring-1 ring-white/10" data-tab="slack">Message your team</button>
+          <button onclick="switchTab('browser')" class="tab-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-zinc-900 text-zinc-400 hover:text-white hover:bg-zinc-800 ring-1 ring-white/10" data-tab="browser">Browser tasks</button>
+          <button onclick="switchTab('files')" class="tab-btn px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-zinc-900 text-zinc-400 hover:text-white hover:bg-zinc-800 ring-1 ring-white/10" data-tab="files">Organize files</button>
         </div>
+
+        <p class="text-center text-zinc-500 text-sm">Slack, Notion, browser, files — these are just examples. Once it works, share it with your coworkers as a skill.</p>
 
         <!-- Demo Content -->
         <div class="glass-panel rounded-3xl border border-white/10 overflow-hidden relative min-h-[500px] md:min-h-[550px] shadow-2xl shadow-black/50">
            
-           <!-- Tab: Files -->
-           <div id="tab-files" class="tab-content grid md:grid-cols-2 gap-0 h-full absolute inset-0 transition-opacity duration-500 opacity-100 z-10 bg-zinc-950/80 backdrop-blur-xl">
+           <!-- Tab: CRM (Notion) -->
+           <div id="tab-crm" class="tab-content grid md:grid-cols-2 gap-0 h-full absolute inset-0 transition-opacity duration-500 opacity-100 z-10 bg-zinc-950/80 backdrop-blur-xl">
               <div class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/5 flex flex-col justify-center relative overflow-hidden group">
                  <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                  <div class="space-y-8 relative z-10">
@@ -314,7 +320,134 @@
                        <span class="text-sm font-medium text-indigo-300 uppercase tracking-wider">Prompt</span>
                     </div>
                     <p class="text-xl md:text-3xl leading-snug font-medium text-white">
-                      "Help me organize my Downloads folder. Scan contents and propose a plan: categories, sorting rules, and naming conventions. Show the plan before changes."
+                      "Add the new lead from this email to my Notion CRM. Set status to 'New' and add today's date."
+                    </p>
+                 </div>
+              </div>
+              <div class="p-8 md:p-12 bg-zinc-900/30 flex flex-col justify-center">
+                 <div class="flex items-center gap-3 mb-6">
+                     <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 ring-1 ring-emerald-500/20">
+                       <i data-lucide="database" class="w-5 h-5"></i>
+                     </div>
+                     <span class="text-sm font-medium text-emerald-300 uppercase tracking-wider">Result</span>
+                 </div>
+                 <div class="font-mono text-xs md:text-sm text-zinc-300 bg-black/60 p-6 rounded-2xl border border-white/5 shadow-inner overflow-hidden mb-8 relative">
+                    <div class="absolute top-0 right-0 p-4 opacity-50"><i data-lucide="layout-grid" class="w-4 h-4"></i></div>
+<pre class="whitespace-pre leading-relaxed">✓ Created new row in "Leads" database
+
+Name:     Sarah Chen
+Email:    sarah@acme.co
+Company:  Acme Corp
+Status:   New
+Added:    2024-03-22
+Source:   Email import</pre>
+                 </div>
+                 <div>
+                   <h3 class="font-bold text-white text-lg mb-2">Update your CRM automatically</h3>
+                   <p class="text-zinc-400 leading-relaxed">OpenWork reads your email, extracts the lead info, and adds it directly to your Notion database.</p>
+                 </div>
+              </div>
+           </div>
+
+           <!-- Tab: Slack -->
+           <div id="tab-slack" class="tab-content grid md:grid-cols-2 gap-0 h-full absolute inset-0 transition-opacity duration-500 opacity-0 z-0 pointer-events-none bg-zinc-950/80 backdrop-blur-xl">
+              <div class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/5 flex flex-col justify-center relative overflow-hidden group">
+                 <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                 <div class="space-y-8 relative z-10">
+                    <div class="flex items-center gap-3">
+                       <div class="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400 ring-1 ring-indigo-500/20">
+                         <i data-lucide="message-square" class="w-5 h-5"></i>
+                       </div>
+                       <span class="text-sm font-medium text-indigo-300 uppercase tracking-wider">Prompt</span>
+                    </div>
+                    <p class="text-xl md:text-3xl leading-snug font-medium text-white">
+                      "Summarize yesterday's #support tickets and post a summary to #team-updates on Slack."
+                    </p>
+                 </div>
+              </div>
+              <div class="p-8 md:p-12 bg-zinc-900/30 flex flex-col justify-center">
+                 <div class="flex items-center gap-3 mb-6">
+                     <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 ring-1 ring-emerald-500/20">
+                       <i data-lucide="send" class="w-5 h-5"></i>
+                     </div>
+                     <span class="text-sm font-medium text-emerald-300 uppercase tracking-wider">Result</span>
+                 </div>
+                 <div class="font-mono text-xs md:text-sm text-zinc-300 bg-black/60 p-6 rounded-2xl border border-white/5 shadow-inner overflow-hidden mb-8 relative">
+<pre class="whitespace-pre leading-relaxed">✓ Posted to #team-updates
+
+📊 Support Summary (Mar 21)
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+• 23 tickets resolved
+• Top issue: Login errors (8)
+• Avg response time: 2.4 hrs
+• 3 tickets escalated to eng
+
+Action items flagged for review.</pre>
+                 </div>
+                 <div>
+                   <h3 class="font-bold text-white text-lg mb-2">Message your team automatically</h3>
+                   <p class="text-zinc-400 leading-relaxed">OpenWork reads Slack channels, summarizes the key points, and posts updates wherever you need them.</p>
+                 </div>
+              </div>
+           </div>
+
+           <!-- Tab: Browser -->
+           <div id="tab-browser" class="tab-content grid md:grid-cols-2 gap-0 h-full absolute inset-0 transition-opacity duration-500 opacity-0 z-0 pointer-events-none bg-zinc-950/80 backdrop-blur-xl">
+              <div class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/5 flex flex-col justify-center relative overflow-hidden group">
+                 <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                 <div class="space-y-8 relative z-10">
+                    <div class="flex items-center gap-3">
+                       <div class="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400 ring-1 ring-indigo-500/20">
+                         <i data-lucide="message-square" class="w-5 h-5"></i>
+                       </div>
+                       <span class="text-sm font-medium text-indigo-300 uppercase tracking-wider">Prompt</span>
+                    </div>
+                    <p class="text-xl md:text-3xl leading-snug font-medium text-white">
+                      "Open Linear, find my assigned issues, and export them to a markdown file on my desktop."
+                    </p>
+                 </div>
+              </div>
+              <div class="p-8 md:p-12 bg-zinc-900/30 flex flex-col justify-center">
+                 <div class="flex items-center gap-3 mb-6">
+                     <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 ring-1 ring-emerald-500/20">
+                       <i data-lucide="globe" class="w-5 h-5"></i>
+                     </div>
+                     <span class="text-sm font-medium text-emerald-300 uppercase tracking-wider">Result</span>
+                 </div>
+                 <div class="font-mono text-xs md:text-sm text-zinc-300 bg-black/60 p-6 rounded-2xl border border-white/5 shadow-inner overflow-hidden mb-8 relative">
+<pre class="whitespace-pre leading-relaxed">✓ Opened Chrome → linear.app
+✓ Logged in (existing session)
+✓ Filtered: Assigned to me
+✓ Exported 12 issues
+
+Saved: ~/Desktop/linear-issues.md
+
+# My Linear Issues
+- [ENG-421] Fix auth timeout
+- [ENG-418] Update API docs
+- [ENG-415] Mobile nav bug
+...</pre>
+                 </div>
+                 <div>
+                   <h3 class="font-bold text-white text-lg mb-2">Control your browser</h3>
+                   <p class="text-zinc-400 leading-relaxed">OpenWork opens your browser, navigates to any site, extracts data, and saves it locally — all on your machine.</p>
+                 </div>
+              </div>
+           </div>
+
+           <!-- Tab: Files -->
+           <div id="tab-files" class="tab-content grid md:grid-cols-2 gap-0 h-full absolute inset-0 transition-opacity duration-500 opacity-0 z-0 pointer-events-none bg-zinc-950/80 backdrop-blur-xl">
+              <div class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/5 flex flex-col justify-center relative overflow-hidden group">
+                 <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                 <div class="space-y-8 relative z-10">
+                    <div class="flex items-center gap-3">
+                       <div class="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400 ring-1 ring-indigo-500/20">
+                         <i data-lucide="message-square" class="w-5 h-5"></i>
+                       </div>
+                       <span class="text-sm font-medium text-indigo-300 uppercase tracking-wider">Prompt</span>
+                    </div>
+                    <p class="text-xl md:text-3xl leading-snug font-medium text-white">
+                      "Organize my Downloads folder by type and date. Rename files with a consistent format."
                     </p>
                  </div>
               </div>
@@ -333,138 +466,16 @@
 │   ├── 2024-03-22_invoice.pdf
 │   └── resume_john-smith.pdf
 ├── Spreadsheets/
-│   └── 2024_q3-budget_v3.xlsx
+│   └── 2024_q3-budget.xlsx
 ├── Images/
 │   ├── photo_2024-03-15.jpg
 │   └── screen_2024-03-22.png
 └── Archives/
-    └── random_download.zip</pre>
+    └── project_backup.zip</pre>
                  </div>
                  <div>
-                   <h3 class="font-bold text-white text-lg mb-2">Organize and rename files</h3>
-                   <p class="text-zinc-400 leading-relaxed">OpenWork scans your messy folders, proposes a clean structure, and executes the move only after you approve.</p>
-                 </div>
-              </div>
-           </div>
-
-           <!-- Tab: Spreadsheets -->
-           <div id="tab-spreadsheets" class="tab-content grid md:grid-cols-2 gap-0 h-full absolute inset-0 transition-opacity duration-500 opacity-0 z-0 pointer-events-none bg-zinc-950/80 backdrop-blur-xl">
-              <div class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/5 flex flex-col justify-center relative overflow-hidden group">
-                 <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                 <div class="space-y-8 relative z-10">
-                    <div class="flex items-center gap-3">
-                       <div class="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400 ring-1 ring-indigo-500/20">
-                         <i data-lucide="message-square" class="w-5 h-5"></i>
-                       </div>
-                       <span class="text-sm font-medium text-indigo-300 uppercase tracking-wider">Prompt</span>
-                    </div>
-                    <p class="text-xl md:text-3xl leading-snug font-medium text-white">
-                      "Turn these receipt images into a budget spreadsheet. Extract date, merchant, amount, and category."
-                    </p>
-                 </div>
-              </div>
-              <div class="p-8 md:p-12 bg-zinc-900/30 flex flex-col justify-center">
-                 <div class="flex items-center gap-3 mb-6">
-                     <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 ring-1 ring-emerald-500/20">
-                       <i data-lucide="table" class="w-5 h-5"></i>
-                     </div>
-                     <span class="text-sm font-medium text-emerald-300 uppercase tracking-wider">Result</span>
-                 </div>
-                 <div class="font-mono text-xs md:text-sm text-zinc-300 bg-black/60 p-6 rounded-2xl border border-white/5 shadow-inner overflow-hidden mb-8 relative">
-<pre class="whitespace-pre leading-relaxed">| Date       | Merchant   | Amount  | Category |
-|------------|------------|---------|----------|
-| 2024-03-15 | Uber       | $24.50  | Travel   |
-| 2024-03-16 | AWS        | $142.00 | Software |
-| 2024-03-18 | Staples    | $45.99  | Office   |
-| 2024-03-20 | WeWork     | $450.00 | Rent     |
-| 2024-03-22 | Starbucks  | $12.40  | Meals    |</pre>
-                 </div>
-                 <div>
-                   <h3 class="font-bold text-white text-lg mb-2">Turn screenshots into spreadsheets</h3>
-                   <p class="text-zinc-400 leading-relaxed">Hand OpenWork a pile of receipts or screenshots. Come back to a formatted CSV or Excel file.</p>
-                 </div>
-              </div>
-           </div>
-
-           <!-- Tab: Reports -->
-           <div id="tab-reports" class="tab-content grid md:grid-cols-2 gap-0 h-full absolute inset-0 transition-opacity duration-500 opacity-0 z-0 pointer-events-none bg-zinc-950/80 backdrop-blur-xl">
-              <div class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/5 flex flex-col justify-center relative overflow-hidden group">
-                 <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                 <div class="space-y-8 relative z-10">
-                    <div class="flex items-center gap-3">
-                       <div class="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400 ring-1 ring-indigo-500/20">
-                         <i data-lucide="message-square" class="w-5 h-5"></i>
-                       </div>
-                       <span class="text-sm font-medium text-indigo-300 uppercase tracking-wider">Prompt</span>
-                    </div>
-                    <p class="text-xl md:text-3xl leading-snug font-medium text-white">
-                      "Draft a Q1 product update report. Pull from all my meeting notes in the 'Q1 Planning' folder. Focus on launch milestones."
-                    </p>
-                 </div>
-              </div>
-              <div class="p-8 md:p-12 bg-zinc-900/30 flex flex-col justify-center">
-                 <div class="flex items-center gap-3 mb-6">
-                     <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 ring-1 ring-emerald-500/20">
-                       <i data-lucide="file-text" class="w-5 h-5"></i>
-                     </div>
-                     <span class="text-sm font-medium text-emerald-300 uppercase tracking-wider">Result</span>
-                 </div>
-                 <div class="font-sans text-xs md:text-sm text-zinc-300 bg-white text-black p-8 rounded-2xl shadow-inner overflow-hidden mb-8 relative h-64">
-                    <h4 class="font-bold text-lg mb-4">Q1 Product Update</h4>
-                    <p class="mb-4 text-zinc-600"><strong>Executive Summary:</strong> Q1 marked a pivotal quarter. We launched Dashboard v2 and completed API migration.</p>
-                    <h5 class="font-bold mb-2">Launch Milestones</h5>
-                    <ul class="list-disc pl-4 space-y-1 text-zinc-600">
-                      <li>Jan 15: Dashboard v2 shipped</li>
-                      <li>Feb 01: API v3 migration</li>
-                      <li>Mar 10: Mobile beta (iOS)</li>
-                    </ul>
-                 </div>
-                 <div>
-                   <h3 class="font-bold text-white text-lg mb-2">Draft reports from scattered notes</h3>
-                   <p class="text-zinc-400 leading-relaxed">OpenWork reads your local notes, synthesizes them, and writes a polished draft.</p>
-                 </div>
-              </div>
-           </div>
-
-           <!-- Tab: Analyze -->
-           <div id="tab-analyze" class="tab-content grid md:grid-cols-2 gap-0 h-full absolute inset-0 transition-opacity duration-500 opacity-0 z-0 pointer-events-none bg-zinc-950/80 backdrop-blur-xl">
-              <div class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-white/5 flex flex-col justify-center relative overflow-hidden group">
-                 <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                 <div class="space-y-8 relative z-10">
-                    <div class="flex items-center gap-3">
-                       <div class="w-10 h-10 rounded-full bg-indigo-500/10 flex items-center justify-center text-indigo-400 ring-1 ring-indigo-500/20">
-                         <i data-lucide="message-square" class="w-5 h-5"></i>
-                       </div>
-                       <span class="text-sm font-medium text-indigo-300 uppercase tracking-wider">Prompt</span>
-                    </div>
-                    <p class="text-xl md:text-3xl leading-snug font-medium text-white">
-                      "Analyze these user interview transcripts. Extract top 3 pain points and 3 feature requests. Format as a briefing."
-                    </p>
-                 </div>
-              </div>
-              <div class="p-8 md:p-12 bg-zinc-900/30 flex flex-col justify-center">
-                 <div class="flex items-center gap-3 mb-6">
-                     <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-400 ring-1 ring-emerald-500/20">
-                       <i data-lucide="bar-chart-3" class="w-5 h-5"></i>
-                     </div>
-                     <span class="text-sm font-medium text-emerald-300 uppercase tracking-wider">Result</span>
-                 </div>
-                 <div class="font-mono text-xs md:text-sm text-zinc-300 bg-black/60 p-6 rounded-2xl border border-white/5 shadow-inner overflow-hidden mb-8 relative">
-<pre class="whitespace-pre leading-relaxed"># User Interview Analysis
-
-## Top Pain Points
-1. **Slow onboarding**: Users feel lost in the first 5m.
-2. **Mobile sync**: 40% mentioned sync lag.
-3. **Export formats**: Need PDF and CSV options.
-
-## Feature Requests
-- Dark mode (High priority)
-- Team shared folders
-- API access</pre>
-                 </div>
-                 <div>
-                   <h3 class="font-bold text-white text-lg mb-2">Research and Analysis</h3>
-                   <p class="text-zinc-400 leading-relaxed">Synthesize feedback, analyzing local documents, and generate insights in seconds.</p>
+                   <h3 class="font-bold text-white text-lg mb-2">Organize your files</h3>
+                   <p class="text-zinc-400 leading-relaxed">OpenWork scans your messy folders, proposes a clean structure, and moves files after you approve.</p>
                  </div>
               </div>
            </div>
@@ -477,7 +488,7 @@
       <div class="max-w-6xl mx-auto mb-16 text-center">
         <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight">How it works</h2>
         <p class="text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto">
-          Find OpenWork in your desktop app. Switch to the Tasks tab when you want to execute work, not just chat.
+          OpenWork runs on your computer. You describe what you want, it figures out how, and you approve before anything changes.
         </p>
       </div>
       
@@ -572,42 +583,60 @@
       </div>
     </section>
 
-    <!-- Connects to your tools -->
+    <!-- Skills section -->
     <section id="connectors" class="py-24 px-6 border-t border-white/5 bg-zinc-950">
        <div class="max-w-6xl mx-auto space-y-16">
           <div class="text-center max-w-3xl mx-auto space-y-4">
-             <h2 class="text-3xl md:text-5xl font-bold tracking-tight">Connects to your tools</h2>
-             <p class="text-zinc-400 text-xl">OpenWork works with your files where they live. Connect local folders, git repositories, or use MCP servers.</p>
+             <h2 class="text-3xl md:text-5xl font-bold tracking-tight">Build once, share with your team</h2>
+             <p class="text-zinc-400 text-xl">Package any workflow as a skill. Your coworkers can run it on their machine with one click.</p>
           </div>
 
-          <div class="grid md:grid-cols-2 gap-8">
-             <div class="glass-panel p-8 md:p-12 rounded-3xl flex flex-col items-start gap-6 relative overflow-hidden group">
+          <div class="grid md:grid-cols-3 gap-8">
+             <div class="glass-panel p-8 rounded-3xl flex flex-col items-start gap-6 relative overflow-hidden group">
                 <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-indigo-500/20 rounded-full blur-3xl group-hover:bg-indigo-500/30 transition-colors"></div>
                 <div class="w-14 h-14 bg-zinc-900 rounded-2xl flex items-center justify-center border border-white/10 text-white z-10">
-                   <i data-lucide="folder-open" class="w-7 h-7"></i>
+                   <i data-lucide="package" class="w-7 h-7"></i>
                 </div>
                 <div class="space-y-3 z-10">
-                   <h3 class="text-2xl font-bold text-white">Bring in your data</h3>
-                   <p class="text-zinc-400 text-lg leading-relaxed">
-                      Connect folders, documents, and codebases. OpenWork reads and indexes them locally so you can query across your knowledge base.
+                   <h3 class="text-xl font-bold text-white">Shareable skills</h3>
+                   <p class="text-zinc-400 leading-relaxed">
+                      Turn any automation into a reusable skill. Share it with your team or the community.
                    </p>
                 </div>
-                <a href="https://github.com/different-ai/openwork" class="mt-auto px-5 py-3 rounded-full bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-colors z-10">Explore Connectors</a>
              </div>
 
-             <div class="glass-panel p-8 md:p-12 rounded-3xl flex flex-col items-start gap-6 relative overflow-hidden group">
+             <div class="glass-panel p-8 rounded-3xl flex flex-col items-start gap-6 relative overflow-hidden group">
                 <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-emerald-500/20 rounded-full blur-3xl group-hover:bg-emerald-500/30 transition-colors"></div>
                 <div class="w-14 h-14 bg-zinc-900 rounded-2xl flex items-center justify-center border border-white/10 text-white z-10">
-                   <i data-lucide="globe" class="w-7 h-7"></i>
+                   <i data-lucide="monitor" class="w-7 h-7"></i>
                 </div>
                 <div class="space-y-3 z-10">
-                   <h3 class="text-2xl font-bold text-white">Work across the web</h3>
-                   <p class="text-zinc-400 text-lg leading-relaxed">
-                      Pair OpenWork with browser skills to research, fill forms, or extract data from websites.
+                   <h3 class="text-xl font-bold text-white">Runs on any machine</h3>
+                   <p class="text-zinc-400 leading-relaxed">
+                      macOS, Windows, Linux. Install OpenWork and run the same skills anywhere.
                    </p>
                 </div>
-                <a href="https://github.com/different-ai/openwork" class="mt-auto px-5 py-3 rounded-full bg-zinc-800 text-white font-semibold text-sm hover:bg-zinc-700 transition-colors z-10">View Skills</a>
              </div>
+
+             <div class="glass-panel p-8 rounded-3xl flex flex-col items-start gap-6 relative overflow-hidden group">
+                <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-purple-500/20 rounded-full blur-3xl group-hover:bg-purple-500/30 transition-colors"></div>
+                <div class="w-14 h-14 bg-zinc-900 rounded-2xl flex items-center justify-center border border-white/10 text-white z-10">
+                   <i data-lucide="cpu" class="w-7 h-7"></i>
+                </div>
+                <div class="space-y-3 z-10">
+                   <h3 class="text-xl font-bold text-white">Any model you want</h3>
+                   <p class="text-zinc-400 leading-relaxed">
+                      GPT-4, Claude, Gemini, Llama, or local models. Use whatever you already pay for.
+                   </p>
+                </div>
+             </div>
+          </div>
+
+          <div class="text-center">
+             <a href="https://github.com/different-ai/openwork" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-zinc-200 transition-colors">
+                <i data-lucide="github" class="w-5 h-5"></i>
+                Explore skills on GitHub
+             </a>
           </div>
        </div>
     </section>
@@ -687,7 +716,7 @@
                 </div>
                 <h3 class="text-2xl font-bold text-white mb-2">Individual</h3>
                 <div class="text-4xl font-bold text-white mb-6">$0 <span class="text-lg font-normal text-zinc-500">/ forever</span></div>
-                <p class="text-zinc-400 mb-8 flex-grow">Full local Cowork experience. Bring your own API keys or run local models.</p>
+                 <p class="text-zinc-400 mb-8 flex-grow">Full Cowork experience on your machine. Bring your own API keys or run local models. Share skills with your team.</p>
                 <ul class="space-y-4 mb-8 text-zinc-300">
                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> Unlimited local sessions</li>
                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i> All skill plugins</li>
@@ -701,7 +730,7 @@
              <div class="glass-panel p-8 rounded-3xl border border-white/10 flex flex-col bg-zinc-900/20">
                 <h3 class="text-2xl font-bold text-white mb-2">Team & Enterprise</h3>
                 <div class="text-4xl font-bold text-white mb-6">Custom</div>
-                <p class="text-zinc-400 mb-8 flex-grow">For organizations that need shared skill registries, managed deployment, and support.</p>
+                 <p class="text-zinc-400 mb-8 flex-grow">For organizations that need shared skill registries, managed deployment, and dedicated support.</p>
                 <ul class="space-y-4 mb-8 text-zinc-300">
                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-zinc-500"></i> Private skill registry</li>
                    <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-zinc-500"></i> Admin controls</li>
@@ -725,12 +754,16 @@
              </div>
              <div class="space-y-3">
                 <h3 class="text-xl font-bold text-white">Is it free?</h3>
-                <p class="text-zinc-400 leading-relaxed">Yes. OpenWork is open source. You can download and use it for free. You only pay for the model usage (API keys) if you use paid cloud models like GPT-4 or Claude 3.5. Local models are free.</p>
+                <p class="text-zinc-400 leading-relaxed">Yes. OpenWork is open source. You can download and use it for free. You only pay for model usage (API keys) if you use paid cloud models. Local models are free.</p>
              </div>
-             <div class="space-y-3">
-                <h3 class="text-xl font-bold text-white">What models can I use?</h3>
-                <p class="text-zinc-400 leading-relaxed">Any model supported by OpenCode. This includes OpenAI, Anthropic, Google Gemini, Groq, or local models via Ollama/LM Studio.</p>
-             </div>
+              <div class="space-y-3">
+                 <h3 class="text-xl font-bold text-white">What models can I use?</h3>
+                 <p class="text-zinc-400 leading-relaxed">Any model supported by OpenCode — over 50 providers including OpenAI, Anthropic, Google Gemini, Groq, or local models via Ollama/LM Studio. See <a href="https://models.dev" target="_blank" class="underline hover:text-white">models.dev</a> for the full list.</p>
+              </div>
+              <div class="space-y-3">
+                 <h3 class="text-xl font-bold text-white">Can I share automations with my team?</h3>
+                 <p class="text-zinc-400 leading-relaxed">Yes. Package any workflow as a skill and share it. Your coworkers can install and run it on their own machines.</p>
+              </div>
              <div class="space-y-3">
                 <h3 class="text-xl font-bold text-white">Is it safe?</h3>
                 <p class="text-zinc-400 leading-relaxed">OpenWork runs locally. It cannot access files or run commands without your permission. You see a plan before any file is touched.</p>
